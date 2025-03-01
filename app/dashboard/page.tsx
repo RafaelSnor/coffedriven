@@ -116,14 +116,14 @@ export default function DashboardPage() {
           <div className="space-y-6">
             <div>
               <h1 className="text-3xl font-bold">Welcome back, John</h1>
-              <p className="text-muted-foreground">Here's what's happening with your team today.</p>
+              <p className="text-muted-foreground">Heres whats happening with your team today.</p>
             </div>
 
             {/* Membership Card */}
             <Card>
               <CardHeader>
                 <CardTitle>Your Membership</CardTitle>
-                <CardDescription>You're currently on the Pro plan</CardDescription>
+                <CardDescription>Youre currently on the Pro plan</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
