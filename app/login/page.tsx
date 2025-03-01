@@ -74,7 +74,7 @@ export default function LoginPage() {
               </CardContent>
               <CardFooter>
                 <p className="text-xs text-center w-full text-muted-foreground">
-                  Don't have an account?{" "}
+                  Dont have an account?{" "}
                   <Link href="/register" className="text-primary hover:underline">
                     Sign up
                   </Link>
@@ -102,7 +102,7 @@ export default function LoginPage() {
               </CardContent>
               <CardFooter>
                 <p className="text-xs text-center w-full text-muted-foreground">
-                  Don't have an account?{" "}
+                  Dont have an account?{" "}
                   <Link href="/register" className="text-primary hover:underline">
                     Sign up
                   </Link>

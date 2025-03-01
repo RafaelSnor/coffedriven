@@ -173,8 +173,8 @@ export default function Home() {
                     ))}
                   </div>
                   <p className="text-muted-foreground">
-                    "StreamLine HR has transformed how we manage our team. It's intuitive, powerful, and saves us hours
-                    every week!"
+                    StreamLine HR has transformed how we manage our team. Its intuitive, powerful, and saves us hours
+                    every week!
                   </p>
                 </div>
                 <div className="mt-6 flex items-center space-x-4">
@@ -199,8 +199,8 @@ export default function Home() {
                     ))}
                   </div>
                   <p className="text-muted-foreground">
-                    "The payroll automation alone has saved us countless hours. Our team loves how easy it is to request
-                    time off and track their benefits."
+                    The payroll automation alone has saved us countless hours. Our team loves how easy it is to request
+                    time off and track their benefits.
                   </p>
                 </div>
                 <div className="mt-6 flex items-center space-x-4">
@@ -225,8 +225,8 @@ export default function Home() {
                     ))}
                   </div>
                   <p className="text-muted-foreground">
-                    "As we scaled from 10 to 100 employees, StreamLine HR made the process seamless. The recruitment
-                    tools helped us find the right talent quickly."
+                  As we scaled from 10 to 100 employees, StreamLine HR made the process seamless. The recruitment
+                    tools helped us find the right talent quickly.
                   </p>
                 </div>
                 <div className="mt-6 flex items-center space-x-4">
@@ -257,7 +257,7 @@ export default function Home() {
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Simple, Transparent Pricing</h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Choose the plan that's right for your business. All plans include a 14-day free trial.
+                  Choose the plan thats right for your business. All plans include a 14-day free trial.
                 </p>
               </div>
             </div>

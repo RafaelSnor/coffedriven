@@ -62,7 +62,19 @@ export default function RecruitmentPage() {
     // In a real app, you would save the job posting data here
   }
 
-  const handleViewCandidate = (candidate: any) => {
+  interface Candidate {
+    id: number;
+    name: string;
+    email: string;
+    position: string;
+    status: 'pending' | 'interviewed' | 'hired';
+    applied: string;
+    phone: string;
+    resume: string;
+  }
+
+
+  const handleViewCandidate = (candidate: Candidate) => {
     setSelectedCandidate(candidate)
     setShowCandidateDialog(true)
   }
@@ -567,7 +579,7 @@ export default function RecruitmentPage() {
           <DialogHeader>
             <DialogTitle>Create New Job Posting</DialogTitle>
             <DialogDescription>
-              Fill in the details for the new job position. Click save when you're done.
+              Fill in the details for the new job position. Click save.
             </DialogDescription>
           </DialogHeader>
           <form onSubmit={handleNewJobSubmit}>
