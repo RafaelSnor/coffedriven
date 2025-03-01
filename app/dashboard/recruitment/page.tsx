@@ -1,18 +1,17 @@
-"use client"
+"use client";
 
-import type React from "react"
-
-import { useState } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Textarea } from "@/components/ui/textarea"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Badge } from "@/components/ui/badge"
+import type React from "react";
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Badge } from "@/components/ui/badge";
 import {
   Dialog,
   DialogContent,
@@ -20,7 +19,7 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog"
+} from "@/components/ui/dialog";
 import {
   FileSearch,
   Users,
@@ -39,52 +38,52 @@ import {
   Building,
   MapPin,
   DollarSign,
-} from "lucide-react"
+} from "lucide-react";
+
+interface Candidate {
+  id: number;
+  name: string;
+  email: string;
+  position: string;
+  status: "pending" | "interviewed" | "hired";
+  applied: string;
+  phone: string;
+  resume: string;
+}
+
+interface Job {
+  id: number;
+  title: string;
+  department: string;
+  type: string;
+  location: string;
+  applicants: number;
+  status: string;
+  posted: string;
+}
 
 export default function RecruitmentPage() {
-  const [activeTab, setActiveTab] = useState("jobs")
-  const [showNewJobDialog, setShowNewJobDialog] = useState(false)
-  const [showCandidateDialog, setShowCandidateDialog] = useState(false)
-  const [selectedCandidate, setSelectedCandidate] = useState<null | {
-    id: number
-    name: string
-    position: string
-    status: string
-    applied: string
-    email: string
-    phone: string
-    resume: string
-  }>(null)
+  const [activeTab, setActiveTab] = useState("jobs");
+  const [showNewJobDialog, setShowNewJobDialog] = useState(false);
+  const [showCandidateDialog, setShowCandidateDialog] = useState(false);
+  const [selectedCandidate, setSelectedCandidate] = useState<Candidate | null>(null);
 
   const handleNewJobSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setShowNewJobDialog(false)
-    // In a real app, you would save the job posting data here
-  }
-
-  interface Candidate {
-    id: number;
-    name: string;
-    email: string;
-    position: string;
-    status: 'pending' | 'interviewed' | 'hired';
-    applied: string;
-    phone: string;
-    resume: string;
-  }
-
+    e.preventDefault();
+    setShowNewJobDialog(false);
+  };
 
   const handleViewCandidate = (candidate: Candidate) => {
-    setSelectedCandidate(candidate)
-    setShowCandidateDialog(true)
-  }
+    setSelectedCandidate(candidate);
+    setShowCandidateDialog(true);
+  };
 
-  const candidates = [
+  const candidates: Candidate[] = [
     {
       id: 1,
       name: "Michael Johnson",
       position: "Senior Frontend Developer",
-      status: "Applied",
+      status: "pending",
       applied: "2 days ago",
       email: "michael@example.com",
       phone: "(555) 123-4567",
@@ -94,7 +93,7 @@ export default function RecruitmentPage() {
       id: 2,
       name: "Sarah Williams",
       position: "Senior Frontend Developer",
-      status: "Screening",
+      status: "interviewed",
       applied: "3 days ago",
       email: "sarah@example.com",
       phone: "(555) 234-5678",
@@ -104,104 +103,49 @@ export default function RecruitmentPage() {
       id: 3,
       name: "David Brown",
       position: "Senior Frontend Developer",
-      status: "Interview",
+      status: "hired",
       applied: "1 week ago",
       email: "david@example.com",
       phone: "(555) 345-6789",
       resume: "resume_david.pdf",
     },
+  ];
+
+  const jobs: Job[] = [
     {
-      id: 4,
-      name: "Emily Davis",
-      position: "Senior Frontend Developer",
-      status: "Technical Test",
-      applied: "5 days ago",
-      email: "emily@example.com",
-      phone: "(555) 456-7890",
-      resume: "resume_emily.pdf",
+      id: 1,
+      title: "Senior Frontend Developer",
+      department: "Engineering",
+      type: "Full-time",
+      location: "Remote",
+      applicants: 12,
+      status: "Active",
+      posted: "2 weeks ago",
     },
     {
-      id: 5,
-      name: "James Wilson",
-      position: "Senior Frontend Developer",
-      status: "Offer",
-      applied: "2 weeks ago",
-      email: "james@example.com",
-      phone: "(555) 567-8901",
-      resume: "resume_james.pdf",
+      id: 2,
+      title: "Marketing Specialist",
+      department: "Marketing",
+      type: "Full-time",
+      location: "On-site",
+      applicants: 8,
+      status: "Active",
+      posted: "1 week ago",
     },
-    {
-      id: 6,
-      name: "Jennifer Garcia",
-      position: "Marketing Specialist",
-      status: "Applied",
-      applied: "1 day ago",
-      email: "jennifer@example.com",
-      phone: "(555) 678-9012",
-      resume: "resume_jennifer.pdf",
-    },
-    {
-      id: 7,
-      name: "Robert Martinez",
-      position: "Marketing Specialist",
-      status: "Screening",
-      applied: "4 days ago",
-      email: "robert@example.com",
-      phone: "(555) 789-0123",
-      resume: "resume_robert.pdf",
-    },
-    {
-      id: 8,
-      name: "Lisa Anderson",
-      position: "Sales Representative",
-      status: "Interview",
-      applied: "3 days ago",
-      email: "lisa@example.com",
-      phone: "(555) 890-1234",
-      resume: "resume_lisa.pdf",
-    },
-    {
-      id: 9,
-      name: "Thomas Taylor",
-      position: "UI/UX Designer",
-      status: "Applied",
-      applied: "6 days ago",
-      email: "thomas@example.com",
-      phone: "(555) 901-2345",
-      resume: "resume_thomas.pdf",
-    },
-    {
-      id: 10,
-      name: "Jessica White",
-      position: "HR Coordinator",
-      status: "Rejected",
-      applied: "1 week ago",
-      email: "jessica@example.com",
-      phone: "(555) 012-3456",
-      resume: "resume_jessica.pdf",
-    },
-  ]
+  ];
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case "Applied":
-        return "bg-blue-100 text-blue-800"
-      case "Screening":
-        return "bg-purple-100 text-purple-800"
-      case "Interview":
-        return "bg-amber-100 text-amber-800"
-      case "Technical Test":
-        return "bg-indigo-100 text-indigo-800"
-      case "Offer":
-        return "bg-green-100 text-green-800"
-      case "Hired":
-        return "bg-emerald-100 text-emerald-800"
-      case "Rejected":
-        return "bg-red-100 text-red-800"
+      case "pending":
+        return "bg-blue-100 text-blue-800";
+      case "interviewed":
+        return "bg-purple-100 text-purple-800";
+      case "hired":
+        return "bg-green-100 text-green-800";
       default:
-        return "bg-gray-100 text-gray-800"
+        return "bg-gray-100 text-gray-800";
     }
-  }
+  };
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -254,7 +198,6 @@ export default function RecruitmentPage() {
               <FileSearch className="h-5 w-5" />
               <span>Recruitment</span>
             </Link>
-            {/* Other sidebar links */}
           </div>
         </aside>
 
@@ -292,68 +235,7 @@ export default function RecruitmentPage() {
                 </div>
 
                 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                  {[
-                    {
-                      id: 1,
-                      title: "Senior Frontend Developer",
-                      department: "Engineering",
-                      type: "Full-time",
-                      location: "Remote",
-                      applicants: 12,
-                      status: "Active",
-                      posted: "2 weeks ago",
-                    },
-                    {
-                      id: 2,
-                      title: "Marketing Specialist",
-                      department: "Marketing",
-                      type: "Full-time",
-                      location: "On-site",
-                      applicants: 8,
-                      status: "Active",
-                      posted: "1 week ago",
-                    },
-                    {
-                      id: 3,
-                      title: "Sales Representative",
-                      department: "Sales",
-                      type: "Full-time",
-                      location: "Hybrid",
-                      applicants: 15,
-                      status: "Active",
-                      posted: "3 weeks ago",
-                    },
-                    {
-                      id: 4,
-                      title: "UI/UX Designer",
-                      department: "Design",
-                      type: "Contract",
-                      location: "Remote",
-                      applicants: 6,
-                      status: "Active",
-                      posted: "5 days ago",
-                    },
-                    {
-                      id: 5,
-                      title: "HR Coordinator",
-                      department: "HR",
-                      type: "Part-time",
-                      location: "On-site",
-                      applicants: 4,
-                      status: "Active",
-                      posted: "2 days ago",
-                    },
-                    {
-                      id: 6,
-                      title: "Backend Developer",
-                      department: "Engineering",
-                      type: "Full-time",
-                      location: "Remote",
-                      applicants: 9,
-                      status: "Closed",
-                      posted: "1 month ago",
-                    },
-                  ].map((job) => (
+                  {jobs.map((job) => (
                     <Card key={job.id} className={job.status === "Closed" ? "opacity-70" : ""}>
                       <CardHeader className="pb-2">
                         <div className="flex justify-between">
@@ -775,6 +657,5 @@ export default function RecruitmentPage() {
         </DialogContent>
       </Dialog>
     </div>
-  )
+  );
 }
-
