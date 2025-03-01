@@ -352,7 +352,7 @@ export default function DashboardPage() {
                     <div className="space-y-4">
                       <div className="flex justify-between">
                         <div className="space-y-1">
-                          <h3 className="text-lg font-medium">Today's Attendance</h3>
+                          <h3 className="text-lg font-medium">Todays Attendance</h3>
                           <p className="text-sm text-muted-foreground">May 1, 2024</p>
                         </div>
                         <Button>Clock In/Out</Button>
